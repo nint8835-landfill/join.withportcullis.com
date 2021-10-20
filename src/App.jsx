@@ -12,10 +12,10 @@ function App() {
     (async () => {
       const user = await fetch("http://127.0.0.1:8787/users/current", {
         credentials: "include",
-      }).then((res) => res.json());
-      setUser(user);
+      });
+      setUser(await user.json());
     })();
-  }, []);
+  }, [setUser]);
 
   return (
     <Flex height={"100%"} width={"100%"} flexDirection={"column"}>
